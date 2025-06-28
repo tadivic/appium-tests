@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
             } catch (Throwable ignored) {
 
             }
-            Assert.assertEquals(loginPage.getError(), "Введены неверные данные");
+            Assert.assertEquals(loginPage.getError(), "Введены неверные данные","Не отображается сообщение об ошибке");
         });
     }
 
@@ -58,7 +58,7 @@ public class LoginTest extends BaseTest {
             } catch (Throwable ignored) {
 
             }
-            Assert.assertEquals(loginPage.getError(), "Введены неверные данные");
+            Assert.assertEquals(loginPage.getError(), "Введены неверные данные","Не отображается сообщение об ошибке");
         });
     }
 
@@ -77,7 +77,7 @@ public class LoginTest extends BaseTest {
             } catch (Throwable ignored) {
 
             }
-            Assert.assertEquals(loginPage.getError(), "Введены неверные данные");
+            Assert.assertEquals(loginPage.getError(), "Введены неверные данные","Не отображается сообщение об ошибке");
         });
     }
 
@@ -108,7 +108,7 @@ public class LoginTest extends BaseTest {
             } catch (Throwable ignored) {
 
             }
-            Assert.assertEquals(loginPage.getPassword(), "Password");
+            Assert.assertEquals(loginPage.getPassword(), "Password","Не отображается пароль");
         });
     }
 }

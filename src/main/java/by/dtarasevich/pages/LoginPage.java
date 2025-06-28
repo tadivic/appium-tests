@@ -3,6 +3,7 @@ package by.dtarasevich.pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,15 +46,25 @@ public class LoginPage {
     public void setPassword(String val) {
         password.sendKeys(val);
     }
+
     public String getPassword() {
         return password.getText();
     }
 
     public void clickLogin() {
-        loginButton.click();
+        try {
+            loginButton.click();
+        } catch (StaleElementReferenceException e) {
+            loginButton.click();
+        }
     }
+
     public void clickShowPass() {
-        showPass.click();
+        try {
+            showPass.click();
+        } catch (StaleElementReferenceException e) {
+            showPass.click();
+        }
     }
 
     public String getError() {
