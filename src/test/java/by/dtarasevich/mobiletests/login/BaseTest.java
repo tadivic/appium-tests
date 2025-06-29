@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.ByteArrayInputStream;
@@ -19,10 +20,9 @@ public class BaseTest {
     @AfterMethod
     public void afterMethod(ITestResult res) {
         try {
-            if (res.getStatus() == ITestResult.FAILURE) {
                 Allure.addAttachment("Скриншот", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
 
-            }
+
         } catch (Throwable ignored) {
 
         }
@@ -32,6 +32,14 @@ public class BaseTest {
     public void setUp() {
         try {
             driver = DriverManager.getMobileDriver();
+        } catch (Throwable e) {
+            fail("ПРОБЛЕМА С СОЗДАНИЕМ ДРАЙВЕРА");
+        }
+    }
+    @AfterSuite
+    public void tearDown() {
+        try {
+          DriverManager.quitDriver();
         } catch (Throwable e) {
             fail("ПРОБЛЕМА С СОЗДАНИЕМ ДРАЙВЕРА");
         }

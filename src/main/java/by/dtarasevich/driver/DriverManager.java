@@ -13,13 +13,7 @@ import java.util.*;
 
 
 public class DriverManager {
-    private static final String PATH_TO_APP_PATTERN = "src/test/resources/mobileBuilds/%s";
-    public static final boolean DEFAULT_FULL_RESET_VALUE = true;
     private static ThreadLocal<AppiumDriver> threadLocalDriver=new ThreadLocal<>();
-    private static final Logger log = LoggerFactory.getLogger(DriverManager.class.getName());
-    private static ThreadLocal<DriverManager> threadLocalInstance;
-    private static Dimension windowSize;
-    private static Set<AppiumDriver> driverSet = new HashSet<>();
 
 
 
